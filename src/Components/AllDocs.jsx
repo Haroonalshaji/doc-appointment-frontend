@@ -4,7 +4,9 @@ import { Row, Col } from 'react-bootstrap'
 import Cards from './Cards';
 
 
-function AllDocs() {
+
+
+function AllDocs({query}) {
 
   // api fetching
   const base_url = 'https://doc-appointment-vfj1.onrender.com/doctors';
@@ -18,6 +20,8 @@ function AllDocs() {
 
   console.log(allDocsdata);
 
+
+
   useEffect(() => {
     fetchData()
   }, [])
@@ -26,7 +30,7 @@ function AllDocs() {
   return (
     <div style={{backgroundImage:"url('https://c1.wallpaperflare.com/preview/476/30/346/operating-theater-surgery-surgeon-hospital.jpg'),", backgroundAttachment:"fixed"}}>
       <Row>
-        {allDocsdata.map(item => (
+        {allDocsdata.filter((item=>item.name.toLowerCase().includes(query))).map(item => (
           <Col sm={12} md={6} lg={4} xl={3}>
             <Cards doc={item} />
           </Col>

@@ -6,16 +6,19 @@ import Footer from './Components/Footer';
 import AllDocs from './Components/AllDocs';
 import { Route, Routes } from 'react-router-dom';
 import ViewDoc from './Components/ViewDoc';
+import { useState } from 'react';
+
 
 function App() {
+  const [query, setQuery] = useState("")
   return (
-    <div className="App" style={{backgroundImage:"url('https://c1.wallpaperflare.com/preview/476/30/346/operating-theater-surgery-surgeon-hospital.jpg'),", backgroundAttachment:"fixed"}}>
+    <div className="App" style={{ backgroundImage: "url('https://c1.wallpaperflare.com/preview/476/30/346/operating-theater-surgery-surgeon-hospital.jpg'),", backgroundAttachment: "fixed" }}>
       <header>
-        <Header />
+        <Header setQuery={setQuery} />
       </header>
       <section>
         <Routes>
-          <Route path='/' element={<AllDocs />} />
+          <Route path='/' element={<AllDocs query={query} />} />
           <Route path='/view/:id' element={<ViewDoc />} />
         </Routes>
       </section>

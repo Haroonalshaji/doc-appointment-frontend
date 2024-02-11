@@ -11,8 +11,10 @@ import {
     MDBCollapse
 } from 'mdb-react-ui-kit';
 
-function Header() {
+
+function Header({setQuery}) {
     const [openNav, setOpenNav] = useState(false);
+   
     return (
         <div>
             <MDBNavbar expand='lg' light bgColor='light'>
@@ -47,6 +49,10 @@ function Header() {
                             <MDBNavbarItem>
                                 <MDBNavbarLink href='#'>Contact</MDBNavbarLink>
                             </MDBNavbarItem>
+                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" onChange={e => setQuery(e.target.value)} aria-describedby="search-addon" />
+                            <span class="input-group-text border-0" id="search-addon">
+                                <i class="fas fa-search"></i>
+                            </span>
                         </MDBNavbarNav>
                     </MDBCollapse>
                 </MDBContainer>
