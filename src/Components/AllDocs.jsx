@@ -30,7 +30,7 @@ function AllDocs({query}) {
   return (
     <div style={{backgroundImage:"url('https://c1.wallpaperflare.com/preview/476/30/346/operating-theater-surgery-surgeon-hospital.jpg'),", backgroundAttachment:"fixed"}}>
       <Row>
-        {allDocsdata.filter((item=>item.name.toLowerCase().includes(query))).map(item => (
+        {allDocsdata.filter((item=>item.name.toLowerCase().includes(query.toLowerCase()))).map(item => (
           <Col sm={12} md={6} lg={4} xl={3}>
             <Cards doc={item} />
           </Col>
